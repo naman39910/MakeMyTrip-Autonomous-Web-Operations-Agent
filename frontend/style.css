@@ -1,0 +1,82 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.header {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #eb2026;
+}
+
+.header h1 { 
+    margin: 0; 
+    font-size: 24px; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.task-panel {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+}
+
+h2 { 
+    margin-top: 0; 
+    color: #1a1a1a; 
+}
+
+button {
+    background-color: #eb2026;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover { 
+    background-color: #d11c22; 
+}
+
+button:disabled { 
+    background-color: #cccccc; 
+    cursor: not-allowed; 
+}
+
+#status { 
+    margin-top: 15px; 
+    font-weight: bold; 
+    color: #0056b3; 
+}
+
+#output-box {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e8f4fd;
+    border-left: 4px solid #007bff;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}

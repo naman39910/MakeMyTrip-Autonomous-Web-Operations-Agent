@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMT Web Ops Agent</title>
+    <!-- CSS file ko link kar rahe hain -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>MakeMyTrip | Operations Dashboard</h1>
+    </div>
+
+    <div class="container">
+        <div class="task-panel">
+            <h2>Competitor Monitoring Task</h2>
+            <p><strong>Target:</strong> https://www.makemytrip.com/</p>
+            <p><strong>Action:</strong> Scrape page, extract JSON, compare with yesterday's snapshot, and generate Executive Alert.</p>
+            <!-- Button click hone par JS function call hoga -->
+            <button id="runBtn" onclick="triggerAgent()">🚀 Start AI Agent Workflow</button>
+            <div id="status"></div>
+        </div>
+
+        <div id="output-box"></div>
+    </div>
+
+    <!-- JavaScript file ko link kar rahe hain -->
+    <script src="script.js"></script>
+</body>
+</html>
