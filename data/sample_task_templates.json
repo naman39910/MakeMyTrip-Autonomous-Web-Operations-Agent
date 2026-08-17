@@ -1,0 +1,20 @@
+{
+  "templates": [
+    {
+      "template_id": "TPL-001",
+      "name": "Daily Homepage Monitor",
+      "description": "Checks the main homepage for high-level changes in maintenance status and pricing signals.",
+      "target_url": "https://www.makemytrip.com/",
+      "agent_workflow": ["Scraper", "Analyst", "Reasoner"],
+      "expected_output_format": "JSON"
+    },
+    {
+      "template_id": "TPL-002",
+      "name": "Competitor Offer Tracking",
+      "description": "Scrapes promotional banners and compares them with previous day's offers.",
+      "target_url": "https://www.makemytrip.com/offers/",
+      "agent_workflow": ["Scraper", "Analyst", "Reasoner"],
+      "expected_output_format": "Operations Alert"
+    }
+  ]
+}

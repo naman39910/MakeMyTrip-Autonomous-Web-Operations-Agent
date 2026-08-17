@@ -1,0 +1,4 @@
+target_name,url,frequency,priority,objective
+MakeMyTrip Homepage,https://www.makemytrip.com/,daily,High,Monitor title changes and maintenance status
+MakeMyTrip Flights,https://www.makemytrip.com/flights/,daily,High,Track flight promotional offers
+MakeMyTrip Hotels,https://www.makemytrip.com/hotels/,weekly,Medium,Monitor hotel pricing movement for selected cities
