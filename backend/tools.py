@@ -42,5 +42,5 @@ def real_browser_scraper(url: str) -> str:
         - 5-Star Hotels in Mumbai starting at Rs. 8,999/night
         Book your travel today!
         """
-        return fallback_dataplaywright
+        return fallback_data
     

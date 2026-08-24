@@ -6,9 +6,9 @@ from tools import real_browser_scraper
 # Load environment variables from the root .env file
 load_dotenv(dotenv_path="../.env")
 
-# Groq LLM Configuration
+# 🔥 THE ULTIMATE FIX: Using OpenAI compatible endpoint for Groq
 my_llm = LLM(
-    model="openai/llama-3.1-8b-instant", 
+    model="openai/qwen/qwen3.6-27b",  
     api_key=os.environ.get("GROQ_API_KEY"),
     base_url="https://api.groq.com/openai/v1"
 )
