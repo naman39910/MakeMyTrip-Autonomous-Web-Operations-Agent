@@ -10,7 +10,7 @@ def real_browser_scraper(url: str) -> str:
     print(f"🌐 [Playwright] Launching Firefox to scrape: {url}")
     try:
         with sync_playwright() as p:
-            # Hum Chromium ki jagah Firefox use kar rahe hain (Anti-bot ko bypass karne ke liye)
+            # we have use Firefox (Anti-bot ko bypass karne ke liye)
             browser = p.firefox.launch(headless=False) 
             
             context = browser.new_context(
@@ -32,7 +32,7 @@ def real_browser_scraper(url: str) -> str:
         print(f"⚠️ [Playwright] Blocked by Anti-Bot: {e}")
         print("🔄 [System] Injecting Fallback Dummy Data for AI Pipeline execution...")
         
-        # DEMO SAVER: Agar MakeMyTrip block karta hai, toh AI pipeline tootne ki jagah ye dummy data use karegi
+        # DEMO SAVER:If Makemytrip blocks the request, the pipeline will use this dummy data instead.
         fallback_data = """
         Flight Tickets and Hotel Booking - MakeMyTrip
         Welcome to MakeMyTrip! Discover our latest promotional offers and holiday packages.
