@@ -3,6 +3,16 @@ from crewai import Agent, LLM
 from dotenv import load_dotenv
 from tools import real_browser_scraper
 
+import streamlit as st
+import os
+
+# Streamlit secrets se API key uthakar environment variable mein set karein
+try:
+    if "OPENAI_API_KEY" in st.secrets:
+        os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+except Exception:
+    pass
+
 # Load environment variables from the root .env file
 load_dotenv(dotenv_path="../.env")
 
