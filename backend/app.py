@@ -5,8 +5,8 @@ import os
 # Add backend directory to system path so it can import crew modules
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-from agents import travel_agent  # Aapke agents.py se agent import kar rahe hain
-from tasks import travel_task    # Aapke tasks.py se task import kar rahe hain
+from agents import scraper_agent, analyst_agent, reasoning_agent
+from tasks import scrape_task, analyze_task, reasoning_task
 from crewai import Crew
 
 # Page Config
