@@ -50,10 +50,10 @@ if run_btn:
     else:
         with st.spinner("🤖 Multi-agent system is browsing and analyzing MakeMyTrip live data..."):
             try:
-                # Direct CrewAI Execution (No FastAPI needed)
+                # Direct CrewAI Execution with correct agents and tasks
                 crew = Crew(
-                    agents=[travel_agent],
-                    tasks=[travel_task],
+                    agents=[scraper_agent, analyst_agent, reasoning_agent],
+                    tasks=[scrape_task, analyze_task, reasoning_task],
                     verbose=True
                 )
                 
@@ -91,7 +91,7 @@ if run_btn:
                             <p><b>Discount:</b> FLAT 8% OFF</p>
                             <p><i>Pilgrimage route buses</i></p>
                         </div>
-                    """, unsafe_app_html=True)
+                    """, unsafe_allow_html=True)
 
                 st.divider()
 
