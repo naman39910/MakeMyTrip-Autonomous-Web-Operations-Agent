@@ -1,25 +1,27 @@
 import os
+import streamlit as st
 from crewai import Agent, LLM
 from dotenv import load_dotenv
 from tools import real_browser_scraper
 
-import streamlit as st
-import os
+# Load environment variables from local .env if available
+load_dotenv(dotenv_path="../.env")
 
-# Streamlit secrets se API key uthakar environment variable mein set karein
+# Streamlit Cloud ya local se API key safely fetch karein
+api_key = None
 try:
-    if "OPENAI_API_KEY" in st.secrets:
-        os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+    if hasattr(st, "secrets") and "OPENAI_API_KEY" in st.secrets:
+        api_key = st.secrets["OPENAI_API_KEY"]
 except Exception:
     pass
 
-# Load environment variables from the root .env file
-load_dotenv(dotenv_path="../.env")
+if not api_key:
+    api_key = os.environ.get("OPENAI_API_KEY")
 
-# 🔥 use open api key
+# 🔥 Initialize LLM with the correctly resolved API key
 my_llm = LLM(
-    model="gpt-4o-mini",  # OpenAI ka sabse fast aur cost-effective model
-    api_key=os.environ.get("OPENAI_API_KEY")
+    model="gpt-4o-mini",
+    api_key=api_key
 )
 
 # Agent 1: Scraper
