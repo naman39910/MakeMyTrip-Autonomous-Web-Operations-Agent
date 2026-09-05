@@ -10,7 +10,7 @@
     },
     {
       "template_id": "TPL-002",
-      "name": "Competitor Offer Tracking",
+      "name": "Offer Tracking",
       "description": "Scrapes promotional banners and compares them with previous day's offers.",
       "target_url": "https://www.makemytrip.com/offers/",
       "agent_workflow": ["Scraper", "Analyst", "Reasoner"],

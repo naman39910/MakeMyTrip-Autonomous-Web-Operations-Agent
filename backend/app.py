@@ -1,5 +1,13 @@
 import streamlit as st
-import requests
+import sys
+import os
+
+# Add backend directory to system path so it can import crew modules
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+
+from agents import travel_agent  # Aapke agents.py se agent import kar rahe hain
+from tasks import travel_task    # Aapke tasks.py se task import kar rahe hain
+from crewai import Crew
 
 # Page Config
 st.set_page_config(
@@ -42,56 +50,56 @@ if run_btn:
     else:
         with st.spinner("🤖 Multi-agent system is browsing and analyzing MakeMyTrip live data..."):
             try:
-                # FastAPI Backend Call
-                response = requests.post("http://localhost:8000/api/runs", json={"query": query})
+                # Direct CrewAI Execution (No FastAPI needed)
+                crew = Crew(
+                    agents=[travel_agent],
+                    tasks=[travel_task],
+                    verbose=True
+                )
                 
-                if response.status_code == 200:
-                    data = response.json()
-                    st.success("✅ Analysis completed successfully!")
+                # Run the crew
+                result = crew.kickoff(inputs={"query": query})
+                
+                st.success("✅ Analysis completed successfully!")
+                
+                # Displaying Offers Section cleanly
+                st.markdown("### 🔥 Top Extracted Offers & Codes")
+                col1, col2, col3 = st.columns(3)
+                
+                with col1:
+                    st.markdown("""
+                        <div class="offer-card">
+                            <h4>🎟️ MMTESCAPE</h4>
+                            <p><b>Discount:</b> 40% OFF</p>
+                            <p><i>Valid on hotel bookings</i></p>
+                        </div>
+                    """, unsafe_allow_html=True)
                     
-                    # Displaying Offers Section cleanly
-                    st.markdown("### 🔥 Top Extracted Offers & Codes")
-                    col1, col2, col3 = st.columns(3)
+                with col2:
+                    st.markdown("""
+                        <div class="offer-card">
+                            <h4>💳 VISAINFINITE</h4>
+                            <p><b>Discount:</b> FLAT 15% OFF</p>
+                            <p><i>Special bank partner offer</i></p>
+                        </div>
+                    """, unsafe_allow_html=True)
                     
-                    with col1:
-                        st.markdown("""
-                            <div class="offer-card">
-                                <h4>🎟️ MMTESCAPE</h4>
-                                <p><b>Discount:</b> 40% OFF</p>
-                                <p><i>Valid on hotel bookings</i></p>
-                            </div>
-                        """, unsafe_allow_html=True)
-                        
-                    with col2:
-                        st.markdown("""
-                            <div class="offer-card">
-                                <h4>💳 VISAINFINITE</h4>
-                                <p><b>Discount:</b> FLAT 15% OFF</p>
-                                <p><i>Special bank partner offer</i></p>
-                            </div>
-                        """, unsafe_allow_html=True)
-                        
-                    with col3:
-                        st.markdown("""
-                            <div class="offer-card">
-                                <h4>🚌 BUSPILGRIM</h4>
-                                <p><b>Discount:</b> FLAT 8% OFF</p>
-                                <p><i>Pilgrimage route buses</i></p>
-                            </div>
-                        """, unsafe_allow_html=True)
+                with col3:
+                    st.markdown("""
+                        <div class="offer-card">
+                            <h4>🚌 BUSPILGRIM</h4>
+                            <p><b>Discount:</b> FLAT 8% OFF</p>
+                            <p><i>Pilgrimage route buses</i></p>
+                        </div>
+                    """, unsafe_app_html=True)
 
-                    st.divider()
+                st.divider()
 
-                    # Full Operations Report Expander
-                    with st.expander("📄 View Detailed Operations Alert Report", expanded=True):
-                        st.markdown(data.get("operations_alert", "No alert content returned."))
-                        
-                else:
-                    st.error(f"Server returned error status: {response.status_code}")
-                    st.text(response.text)
+                # Full Operations Report Expander
+                with st.expander("📄 View Detailed Operations Alert Report", expanded=True):
+                    st.markdown(str(result))
                     
             except Exception as e:
-                st.error(f"Failed to connect to backend server: {e}")
-                st.info("💡 Tip: Make sure your FastAPI server is running (`python main.py`) in your terminal.")
+                st.error(f"Failed to execute agent pipeline: {e}")
 else:
     st.info("👈 Click **'Run Agent Pipeline'** in the sidebar to start extracting live data from MakeMyTrip.")
