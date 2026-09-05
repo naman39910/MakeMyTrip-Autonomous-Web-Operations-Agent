@@ -6,11 +6,10 @@ from tools import real_browser_scraper
 # Load environment variables from the root .env file
 load_dotenv(dotenv_path="../.env")
 
-# 🔥 THE ULTIMATE FIX: Using OpenAI compatible endpoint for Groq
+# 🔥 use open api key
 my_llm = LLM(
-    model="openai/qwen/qwen3.6-27b",  
-    api_key=os.environ.get("GROQ_API_KEY"),
-    base_url="https://api.groq.com/openai/v1"
+    model="gpt-4o-mini",  # OpenAI ka sabse fast aur cost-effective model
+    api_key=os.environ.get("OPENAI_API_KEY")
 )
 
 # Agent 1: Scraper

@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+crewai
+playwright
+pydantic
+python-dotenv

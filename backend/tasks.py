@@ -8,7 +8,7 @@ scrape_task = Task(
     agent=scraper_agent
 )
 
-# 🔥 UPDATE 1: Yahan humne Agent 2 ko bola hai ki 'top_offers' bhi nikale
+# 🔥 we have asked Agent 2 to also retrieve 'top_offers'
 analyze_task = Task(
     description=(
         "Analyze the raw text provided by the scraper agent. "
@@ -25,7 +25,7 @@ analyze_task = Task(
     agent=analyst_agent
 )
 
-# 🔥 UPDATE 2: Yahan humne Agent 3 ko bola hai ki un offers ko apne Alert mein zaroor likhe
+# 🔥 we have asked Agent 3 to make sure to include those offers in their alerts
 reasoning_task = Task(
     description=(
         "Look at the structured data from the analyst (including the top_offers). "
