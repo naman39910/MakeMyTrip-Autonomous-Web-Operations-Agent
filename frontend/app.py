@@ -4,8 +4,7 @@ import os
 
 # Add backend directory to system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../backend')))
-# Add backend directory to system path so it can import crew modules
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+
 
 from agents import scraper_agent, analyst_agent, reasoning_agent
 from tasks import scrape_task, analyze_task, reasoning_task
