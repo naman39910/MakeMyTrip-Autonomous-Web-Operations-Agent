@@ -31,12 +31,18 @@ The **MakeMyTrip Autonomous Web Operations Agent** converts recurring web monito
 
 ## 🤖 Multi-Agent Workflow Pipeline
 
-```mermaid
-graph TD
-    A[User Input / Task Intake] -->|Query| B[🕷️ Scraper Agent]
-    B -->|Raw DOM Elements| C[📊 Analyst Agent]
-    C -->|Structured JSON| D[🧠 Reasoner Agent]
-    D -->|Operations Alert| E[🚀 Actionable Insights]
+```text
+User Input / Task Intake 
+       │
+       ▼
+ 🕷️ Scraper Agent ──▶ Navigates target URL & extracts raw DOM elements via Playwright
+       │
+       ▼
+ 📊 Analyst Agent ──▶ Parses and structures raw data into standard JSON schemas
+       │
+       ▼
+ 🧠 Reasoner Agent ─▶ Evaluates state changes, detects critical signals, & generates Operations Alerts
+
 
 ## 📁 Repository Structure
 
