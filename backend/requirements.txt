@@ -1,5 +1,4 @@
 crewai>=0.30.0
-pydantic<2.0
-chromadb<0.5.0
-streamlit
-playwright
+streamlit>=1.30.0
+playwright>=1.40.0
+python-dotenv>=1.0.0
