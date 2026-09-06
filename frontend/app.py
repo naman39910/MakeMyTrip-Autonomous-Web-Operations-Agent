@@ -2,6 +2,8 @@ import streamlit as st
 import sys
 import os
 
+# Add backend directory to system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../backend')))
 # Add backend directory to system path so it can import crew modules
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 

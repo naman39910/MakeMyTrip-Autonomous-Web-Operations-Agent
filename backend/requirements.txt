@@ -1,6 +1,5 @@
-fastapi
-uvicorn
-crewai
+crewai>=0.30.0
+pydantic<2.0
+chromadb<0.5.0
+streamlit
 playwright
-pydantic
-python-dotenv
