@@ -401,6 +401,13 @@ The application will start locally through the Streamlit server.
 
 ---
 
+## 🎥 Project Presentation video
+
+* **Google Drive Video Walkthrough:**
+ (https://drive.google.com/file/d/1glKFSuj3MMD9JaAVZYWCrE31Xrm8MMGc/view?usp=sharing))
+
+---
+
 # 🖥️ Frontend Control Panel
 
 The Streamlit dashboard provides an interactive interface for:
@@ -579,9 +586,7 @@ This project demonstrates practical implementation of:
 ### Deployment
 
 - Streamlit Cloud
-- Python Environment Management
-- Dependency Management
-- Cloud Deployment
+- Docker continor
 
 ---
 
