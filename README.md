@@ -397,7 +397,7 @@ The application will start locally through the Streamlit server.
 
 **Live Application:**
 
-https://makemytrip-autonomous-web-operations-agent-agkjzktkexqyeumubud.streamlit.app/
+[https://makemytrip-autonomous-web-operations-agent-agkjzktkexqyeumubud.streamlit.app/](https://makemytrip-autonomous-web-operations-agent-agkjzktkexqyeumubud.streamlit.app/)
 
 ---
 
